@@ -1,5 +1,7 @@
 # generator-fly-webapp
 
+[![Build Status](https://travis-ci.org/creeperyang/generator-fly-webapp.svg)](https://travis-ci.org/creeperyang/generator-fly-webapp)
+
 > [Yeoman](http://yeoman.io) generator which scaffolds out a front-end web app with gulp.
 
 
@@ -42,6 +44,10 @@ yo fly-webapp [appName]
 - Lint scripts automatically(use eslint).
 - Automagically wire-up dependencies installed with [Bower](http://bower.io)
 - The gulpfile is wrote in [ES2015 features](https://babeljs.io/docs/learn-es2015/).
+
+## Release History
+
+2015-09-22&nbsp;&nbsp;&nbsp;&nbsp;`v0.1.0`&nbsp;&nbsp;&nbsp;&nbsp;init
 
 ## License
 
