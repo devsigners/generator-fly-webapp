@@ -1,0 +1,38 @@
+{
+  "name": "generator-fly-webapp",
+  "version": "0.1.0",
+  "description": "Scaffold out a front-end web app",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "creeperyang/generator-fly-webapp",
+  "author": {
+    "name": "creeper",
+    "email": "yangcreeper@hotmail.com",
+    "url": "https://github.com/creeperyang"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --timeout 3000"
+  },
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "web",
+    "front-end",
+    "gulp"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "generator-jasmine": "^0.2.1",
+    "generator-mocha": "^0.2.0",
+    "mkdirp": "^0.5.1",
+    "underscore.string": "^3.2.2",
+    "wiredep": "^2.2.2",
+    "yeoman-generator": "^0.19.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}

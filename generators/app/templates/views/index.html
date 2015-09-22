@@ -1,0 +1,40 @@
+{{#contentFor "head"}}
+<!-- build:css(.tmp) styles/vendor.css -->
+<!-- bower:css -->
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:css(.tmp) styles/app.css -->
+<link rel="stylesheet" href="styles/app.css">
+<!-- endbuild -->
+<% if (includeModernizr) { %>
+<!-- build:js scripts/vendor/modernizr.js -->
+<script src="/bower_components/modernizr/modernizr.js"></script>
+<!-- endbuild --><% } %>
+{{/contentFor}}
+
+<header>
+    <h1>Welcome!</h1>
+    <p>Seems everything work well.</p>
+</header>
+{{#contentFor "scripts"}}
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <% if (includeJQuery) { %>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <% } %>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <% if (includeBootstrap) { %>
+    <!-- build:js scripts/plugins.js -->
+    <% bsPlugins.forEach(function (plugin) { %>
+    <script src="<%= bsPath + plugin %>.js"></script>
+    <% })%>
+    <!-- endbuild -->
+    <% } %>
+    
+    <!-- build:js scripts/app.js -->
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <!-- endbuild -->
+{{/contentFor}}

@@ -1,0 +1,31 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    // Strict mode
+    "strict": [2, "global"],
+
+    // Code style
+    "indent": [2, 4],
+    "no-trailing-spaces": [2, { "skipBlankLines": true }],
+    "eol-last": [2],
+    "quotes": [2, "single"],
+    "key-spacing": [2, {
+      "beforeColon": false,
+      "afterColon": true
+    }],
+    "linebreak-style": [2, "unix"],
+    "no-new-object": [2],
+    "no-unneeded-ternary": [2],
+    "semi-spacing": [2, {"before": false, "after": true}],
+    "space-after-keywords": [2, "always"],
+
+    // Best Practices
+    "eqeqeq": [2, "smart"]
+  }
+}
