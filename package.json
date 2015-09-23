@@ -1,6 +1,6 @@
 {
   "name": "generator-fly-webapp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scaffold out a front-end web app",
   "license": "MIT",
   "main": "app/index.js",
@@ -20,7 +20,8 @@
     "yeoman-generator",
     "web",
     "front-end",
-    "gulp"
+    "gulp",
+    "es6"
   ],
   "dependencies": {
     "chalk": "^1.0.0",

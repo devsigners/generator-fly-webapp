@@ -1,4 +1,5 @@
 # generator-fly-webapp
+# generator-fly-webapp
 
 [![Build Status](https://travis-ci.org/creeperyang/generator-fly-webapp.svg)](https://travis-ci.org/creeperyang/generator-fly-webapp)
 
@@ -46,6 +47,8 @@ yo fly-webapp [appName]
 - The gulpfile is wrote in [ES2015 features](https://babeljs.io/docs/learn-es2015/).
 
 ## Release History
+
+2015-09-23&nbsp;&nbsp;&nbsp;&nbsp;`v0.1.1`&nbsp;&nbsp;&nbsp;&nbsp;include normolize.css correctly; other small changes.
 
 2015-09-22&nbsp;&nbsp;&nbsp;&nbsp;`v0.1.0`&nbsp;&nbsp;&nbsp;&nbsp;init
 
