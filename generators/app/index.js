@@ -214,7 +214,9 @@ module.exports = yeoman.generators.Base.extend({
             if (this.includeModernizr) {
                 bowerJson.dependencies['modernizr'] = '~2.8.1';
             }
-            console.log(__dirname, this.templatePath('bowerrc'), this.destinationPath('.bowerrc'))
+            if (this.uiLib === 'normalize') {
+                bowerJson.dependencies['normalize.css'] = '~3.0.3';
+            }
             this.fs.writeJSON('bower.json', bowerJson);
             this.fs.copy(
                 this.templatePath('bowerrc'),

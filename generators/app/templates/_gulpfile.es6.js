@@ -126,10 +126,6 @@ gulp.task('html', ['styles'], () => {
         })))
         .pipe(assets.restore())
         .pipe($.useref())
-        // .pipe($.if('*.html', $.minifyHtml({
-        //     conditionals: true,
-        //     loose: true
-        // })))
         .pipe($.if('*.js', gulp.dest('dist')))
         .pipe($.if('*.css', gulp.dest('dist')))
         .pipe($.if('*.html', gulp.dest('dist/views')));
@@ -187,7 +183,6 @@ gulp.task('run:proxy', ['compile:server', 'wiredep'], (done) => {
         }
         if (reloaded) {
             reloaded = false;
-            console.log('restart server')
             // restart server will take some time, let browserSync reload next turn and after 300ms?
             // If reload failed (reload before server restarted), set the time more than 300 or just reload manually.
             setTimeout(() => reload(), 300);
@@ -217,7 +212,7 @@ gulp.task('serve', ['styles', 'run:proxy'], () => {
             }
         },
         serveStatic: ['.tmp', 'app'],
-        // browser: ["google chrome", "firefox"],
+        // browser: ['google chrome', 'firefox'],
         logPrefix: 'BS',
         port: 7000,
     });
