@@ -1,7 +1,4 @@
-# generator-fly-webapp
-# generator-fly-webapp
-
-[![Build Status](https://travis-ci.org/creeperyang/generator-fly-webapp.svg)](https://travis-ci.org/creeperyang/generator-fly-webapp)
+# generator-fly-webapp [![Build Status](https://travis-ci.org/creeperyang/generator-fly-webapp.svg)](https://travis-ci.org/creeperyang/generator-fly-webapp)
 
 > [Yeoman](http://yeoman.io) generator which scaffolds out a front-end web app with gulp.
 
@@ -47,6 +44,8 @@ yo fly-webapp [appName]
 - The gulpfile is wrote in [ES2015 features](https://babeljs.io/docs/learn-es2015/).
 
 ## Release History
+
+2015-10-08&nbsp;&nbsp;&nbsp;&nbsp;`v0.2.0`&nbsp;&nbsp;&nbsp;&nbsp;serve raw html(no templating); config file change/enhance and others.
 
 2015-09-23&nbsp;&nbsp;&nbsp;&nbsp;`v0.1.1`&nbsp;&nbsp;&nbsp;&nbsp;include normolize.css correctly; other small changes.
 
