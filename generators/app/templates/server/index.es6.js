@@ -3,8 +3,9 @@
 import koa from 'koa';
 import hbs from 'koa-hbs';
 import logger from 'koa-logger';
-import config from './hbsConfig';
+import { hbsConfig, templateRoot, port } from './config';
 import render from './render';
+import extendHbs from './hbsExtend';
 
 const app = koa();
 
@@ -12,9 +13,10 @@ const app = koa();
 app.use(logger());
 
 // koa-hbs is middleware. `use` it before you want to render a view
-app.use(hbs.middleware(config));
+extendHbs(hbs);
+app.use(hbs.middleware(hbsConfig));
 
 // response
-app.use(render(config.viewPath));
+app.use(render(templateRoot));
 
-app.listen(6789);
+app.listen(port);

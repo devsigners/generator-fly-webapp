@@ -5,10 +5,10 @@ import send from 'koa-send';
 import Debug from 'debug';
 import assert from 'assert';
 import fs from 'mz/fs';
-import { basename, dirname, resolve, join } from 'path';
-import { data as pageData } from './config';
+import { basename, dirname, resolve, join, isAbsolute } from 'path';
+import { data as pageData, raw } from './config';
 
-const debug = Debug('koa-static');
+const debug = Debug('koa-fly-render');
 const rootRouter = new Router();
 
 function serve(root, opts) {
@@ -23,19 +23,30 @@ function serve(root, opts) {
     rootRouter.get('*', function* (next) {
         let path = this.path;
         let data = pageData[path];
+        let absolutePath = join(root, path);
         let stats;
         try {
-            stats = yield fs.stat(join(root, path));
+            stats = yield fs.stat(absolutePath);
         } catch (err) {
             return yield next;
         }
         let isDir = stats.isDirectory();
-        let isFile = !isDir && stats.isFile();
-        if (isDir || isFile) {
-            path = (isDir ? join(path, index) : path).replace(/^\//, '').replace(/\.\S+$/, '');
-            return yield this.render(path, data);
+        let isFile = stats.isFile();
+        if (!isDir && !isFile) {
+            return yield next;
         }
-        yield next;
+        let rawPath = raw[path];
+        path = (isDir ? join(path, index) : path).replace(/^\//, '');
+        if (rawPath !== undefined) {
+            if (rawPath === '') {
+                rawPath = path;
+            }
+            if (!isAbsolute(rawPath)) {
+                rawPath = join(root, path);
+            }
+            return yield send(this, rawPath);
+        }
+        return yield this.render(path.replace(/\.\S+$/, ''), data);
     });
 
     if (!opts.static) {
