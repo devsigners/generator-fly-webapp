@@ -294,6 +294,10 @@ module.exports = yeoman.generators.Base.extend({
                 this.templatePath('views/layouts/index.html'),
                 this.destinationPath('app/views/layouts/index.html')
             );
+            this.fs.copy(
+                this.templatePath('views/about.html'),
+                this.destinationPath('app/views/about.html')
+            );
             this.template(
                 this.templatePath('views/index.html'),
                 this.destinationPath('app/views/index.html'), {

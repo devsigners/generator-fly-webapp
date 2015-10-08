@@ -31,7 +31,7 @@ const data = {
 // Raw Files(response without rendering, templating, ...)
 // key-value pairs, key is path and value is file for that path.
 const raw = {
-    '/test.html': 'test.html'
+    '/about.html': 'about.html'
 };
 
 export default { port, templateRoot, data, raw, hbsConfig };
