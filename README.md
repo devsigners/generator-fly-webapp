@@ -45,6 +45,8 @@ yo fly-webapp [appName]
 
 ## Release History
 
+2015-10-08&nbsp;&nbsp;&nbsp;&nbsp;`v0.3.0`&nbsp;&nbsp;&nbsp;&nbsp;add raw html demo; add gitignore config prompt.
+
 2015-10-08&nbsp;&nbsp;&nbsp;&nbsp;`v0.2.0`&nbsp;&nbsp;&nbsp;&nbsp;serve raw html(no templating); config file change/enhance and others.
 
 2015-09-23&nbsp;&nbsp;&nbsp;&nbsp;`v0.1.1`&nbsp;&nbsp;&nbsp;&nbsp;include normolize.css correctly; other small changes.
