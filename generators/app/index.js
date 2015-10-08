@@ -107,6 +107,17 @@ module.exports = yeoman.generators.Base.extend({
             when: function(answers) {
                 return answers.uiLib !== 'bootstrap';
             }
+        }, {
+            type: 'list',
+            name: 'gitIgnoreType',
+            message: 'Which files upload to repo?',
+            choices: [{
+                name: 'Default',
+                value: 'default'
+            }, {
+                name: 'Minimal (source files and minimal other files)',
+                value: 'minimal'
+            }]
         }];
 
         if(!this.appName) {
@@ -134,6 +145,8 @@ module.exports = yeoman.generators.Base.extend({
             this.appName = this.appName || answers.appName;
             this.appVersion = answers.appVersion;
             this.appLicense = answers.appLicense;
+
+            this.gitIgnoreType = answers.gitIgnoreType;
 
             done();
         }.bind(this));
@@ -165,9 +178,12 @@ module.exports = yeoman.generators.Base.extend({
                 this.destinationPath('gulpfile.js'));
         },
         git: function() {
-            this.fs.copy(
+            this.template(
                 this.templatePath('gitignore'),
-                this.destinationPath('.gitignore'));
+                this.destinationPath('.gitignore'), {
+                    gitIgnoreType: this.gitIgnoreType
+                }
+            );
 
             this.fs.copy(
                 this.templatePath('gitattributes'),

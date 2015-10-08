@@ -1,6 +1,14 @@
 node_modules
+app/bower_components
+<% if (gitIgnoreType === 'default') { %>
+test/bower_components
 dist
 .tmp
 .sass-cache
-app/bower_components
-test/bower_components
+<% } else if (gitIgnoreType === 'minimal') { %>
+.*
+!.gitignore
+test
+server/*
+!server/config.es6.js
+<% } %>
