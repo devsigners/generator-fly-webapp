@@ -45,6 +45,10 @@ yo fly-webapp [appName]
 
 ## Release History
 
+**`0.x` is deprecated.**
+
+2015-10-21&nbsp;&nbsp;&nbsp;&nbsp;`v1.0.0`&nbsp;&nbsp;&nbsp;&nbsp;modify templating and rendering process; other changes.
+
 2015-10-08&nbsp;&nbsp;&nbsp;&nbsp;`v0.3.0`&nbsp;&nbsp;&nbsp;&nbsp;add raw html demo; add gitignore config prompt.
 
 2015-10-08&nbsp;&nbsp;&nbsp;&nbsp;`v0.2.0`&nbsp;&nbsp;&nbsp;&nbsp;serve raw html(no templating); config file change/enhance and others.

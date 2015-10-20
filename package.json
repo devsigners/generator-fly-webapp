@@ -1,6 +1,6 @@
 {
   "name": "generator-fly-webapp",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Scaffold out a front-end web app",
   "license": "MIT",
   "main": "generators/app/index.js",
