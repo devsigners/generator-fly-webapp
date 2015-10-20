@@ -1,0 +1,31 @@
+---
+layout: simple
+title: Wow, Great!
+list: 
+    - 1
+    - 2
+    - 3
+---
+
+<header>
+    <h1>Test!</h1>
+</header>
+<article style="padding: 12px 0 64px;">
+    <ol>
+        <li>
+            <h3>Show json block.</h3>
+            {{#json data}}
+                <pre><code>{{text}}</code></pre>
+            {{/json}}
+        </li>
+        <li>
+            <h3>Show each block.</h3>
+            {{#each list}}
+            <span>{{this}}</span>
+            {{/each}}
+        </li>
+    </ol>
+</article>
+<footer>
+    <small>{{name}} writes the demo and he's {{age}} years old. :-)</small>
+</footer>

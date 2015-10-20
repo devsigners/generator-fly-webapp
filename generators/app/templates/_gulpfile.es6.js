@@ -5,6 +5,7 @@ import browserSync from 'browser-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {stream as wiredep} from 'wiredep';
 import del from 'del';
+import {port} from './server/config.es6.js';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -157,7 +158,7 @@ gulp.task('compile:server', ['lint:server'], () => {
             path.basename = path.basename.replace(/\.es6/, '');
         }))
         .pipe($.babel({
-            optional: ['runtime']
+            babelrc: '.babelrc'
         }))
         .pipe(gulp.dest(paths.srcDest));
 });
@@ -205,7 +206,7 @@ gulp.task('run:proxy', ['compile:server', 'wiredep'], (done) => {
 gulp.task('serve', ['styles', 'run:proxy'], () => {
     browserSync.init(null, {
         proxy: {
-            target: 'http://localhost:6789/',
+            target: 'http://localhost:' + port + '/',
             middleware: function(req, res, next) {
                 // do whatever you like
                 next();
@@ -214,7 +215,7 @@ gulp.task('serve', ['styles', 'run:proxy'], () => {
         serveStatic: ['.tmp', 'app'],
         // browser: ['google chrome', 'firefox'],
         logPrefix: 'BS',
-        port: 7000,
+        port: 7000
     });
 
     gulp.watch([

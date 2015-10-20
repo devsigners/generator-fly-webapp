@@ -1,0 +1,22 @@
+/*
+ * as you know, the data here will be injected to template index.html
+ * data format: json with comment support
+ */
+{
+    // it's a single line comment
+    "name": "creeper",
+    // another single line comment
+    /* multi line comment */
+    "age": 18,
+    "title": "Index",
+    "data": {
+        "count": 2,
+        "list": [{
+            "course": "Math",
+            "score": 100
+        }, {
+            "course": "English",
+            "score": 90
+        }]
+    }
+}

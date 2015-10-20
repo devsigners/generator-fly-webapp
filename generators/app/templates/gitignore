@@ -1,14 +1,12 @@
 node_modules
-app/bower_components
-<% if (gitIgnoreType === 'default') { %>
-test/bower_components
+bower_components
 dist
 .tmp
 .sass-cache
-<% } else if (gitIgnoreType === 'minimal') { %>
-.*
-!.gitignore
+.DS_Store
+<%if (gitIgnoreType === 'minimal') { %>
+server
 test
-server/*
-!server/config.es6.js
+gulpfile.*
+.babelrc
 <% } %>

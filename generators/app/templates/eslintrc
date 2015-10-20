@@ -1,15 +1,7 @@
 {
   "parser": "babel-eslint",
-  "plugins": [],
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  },
+  "extends": "standard",
   "rules": {
-    // Strict mode
-    "strict": [2, "global"],
-
     // Code style
     "indent": [2, 4],
     "no-trailing-spaces": [2, { "skipBlankLines": true }],
@@ -22,8 +14,13 @@
     "linebreak-style": [2, "unix"],
     "no-new-object": [2],
     "no-unneeded-ternary": [2],
+    "semi": [2, "always"],
     "semi-spacing": [2, {"before": false, "after": true}],
     "space-after-keywords": [2, "always"],
+    "space-before-function-paren": [2, "never"],
+    "no-multiple-empty-lines": 0,
+    "spaced-comment": [1, "always", { "markers": ["global", "globals", "eslint", "eslint-disable", "*package", "!", ","] }],
+    "padded-blocks": [1, "never"],
 
     // Best Practices
     "eqeqeq": [2, "smart"]

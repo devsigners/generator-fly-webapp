@@ -1,12 +1,11 @@
-'use strict';
-
-/// hbs extension
+// hbs extension
 const extendHbs = (hbs) => {
     // inject some helpers to hbs.
 
     // json
-    hbs.registerHelper('json', function(arg) {
-        return arg == null ? '' : new hbs.SafeString(JSON.stringify(arg));
+    hbs.registerHelper('json', function(data, options) {
+        let text = data == null ? '' : JSON.stringify(data);
+        return options.fn({text});
     });
 };
 

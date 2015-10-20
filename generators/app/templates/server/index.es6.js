@@ -1,9 +1,7 @@
-'use strict';
-
 import koa from 'koa';
-import hbs from 'koa-hbs';
+import hbs from './koa-handlebars';
 import logger from 'koa-logger';
-import { hbsConfig, templateRoot, port } from './config';
+import {hbsConfig, templateRoot, port} from './config';
 import render from './render';
 import extendHbs from './hbsExtend';
 

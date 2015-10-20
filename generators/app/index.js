@@ -115,7 +115,7 @@ module.exports = yeoman.generators.Base.extend({
                 name: 'Default',
                 value: 'default'
             }, {
-                name: 'Minimal (source files and minimal other files)',
+                name: 'Minimal (only focus on source files).',
                 value: 'minimal'
             }]
         }];
@@ -245,6 +245,12 @@ module.exports = yeoman.generators.Base.extend({
                 this.destinationPath('.editorconfig')
             );
         },
+        babelrc: function() {
+            this.fs.copy(
+                this.templatePath('babelrc'),
+                this.destinationPath('.babelrc')
+            );
+        },
         lint: function() {
             this.fs.copy(
                 this.templatePath('eslintrc'),
@@ -290,13 +296,19 @@ module.exports = yeoman.generators.Base.extend({
                     includeModernizr: this.includeModernizr
                 }
             );
-            this.fs.copy(
-                this.templatePath('views/layouts/index.html'),
-                this.destinationPath('app/views/layouts/index.html')
-            );
+            this.directory('views/layouts', 'app/views/layouts');
+            this.directory('views/data', 'app/views/data');
+            // this.fs.copy(
+            //     this.templatePath('views/layouts/index.html'),
+            //     this.destinationPath('app/views/layouts/index.html')
+            // );
             this.fs.copy(
                 this.templatePath('views/about.html'),
                 this.destinationPath('app/views/about.html')
+            );
+            this.fs.copy(
+                this.templatePath('views/simple.html'),
+                this.destinationPath('app/views/simple.html')
             );
             this.template(
                 this.templatePath('views/index.html'),
