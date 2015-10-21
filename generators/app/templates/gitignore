@@ -4,6 +4,7 @@ dist
 .tmp
 .sass-cache
 .DS_Store
+*.log
 <%if (gitIgnoreType === 'minimal') { %>
 server
 test

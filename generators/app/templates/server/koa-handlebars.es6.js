@@ -136,7 +136,7 @@ class Hbs {
                 self.data[template] = JSON.parse(data);
                 return self.data[template];
             } catch (e) {
-                console.error('Error caught while load and compile template data.');
+                console.error('Error caught while load and compile template data.\nIt\'s ok to ignore this error.');
             }
         };
     };
@@ -249,7 +249,7 @@ class Hbs {
             if (!hbs.layoutTemplate) {
                 hbs.layoutTemplate = yield hbs.cacheLayout();
             }
-            console.log('render', tpl, tplPath);
+
             // Load the template
             if (hbs.disableCache || !hbs.cache[tpl]) {
                 rawTemplate = yield read(tplPath);
@@ -272,10 +272,9 @@ class Hbs {
                 }
                 if (dataFile !== false) {
                     data = yield hbs.loadTemplateData(tpl, dataFile || tpl);
-                    console.log(data);
                 }
                 // extend parsed yaml and dataFile's data to template data
-                Object.assign(locals, parsed.yaml, data);
+                Object.assign(locals, data, parsed.yaml);
             }
 
             template = hbs.cache[tpl].template;
