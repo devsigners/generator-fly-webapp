@@ -1,6 +1,6 @@
 {
   "name": "generator-fly-webapp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Scaffold out a front-end web app",
   "license": "MIT",
   "main": "generators/app/index.js",
@@ -21,7 +21,8 @@
     "web",
     "front-end",
     "gulp",
-    "es6"
+    "es6",
+    "handlebars"
   ],
   "dependencies": {
     "chalk": "^1.0.0",
