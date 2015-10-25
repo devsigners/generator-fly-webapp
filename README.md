@@ -65,7 +65,7 @@ Handlebars is the default template. And some excited features are supported.
 
 Besides gulpfile, the whole server side code is wrote in `ES2015`. Feel ease and embrace it.
 
-### Credits
+## Credits
 
 - `koa-handlebars.es6.js` rewrite based on [`koa-hbs`](https://github.com/jwilm/koa-hbs). Because of `yaml` support, layout dynamic load and other features, rewrite `koa-hbs` instead of depend on it.
 - Borrowed base config and some gulp tasks from [`generator-gulp-webapp`](https://github.com/yeoman/generator-gulp-webapp).
@@ -75,6 +75,8 @@ Thanks for their great work.
 ## Release History
 
 **`0.x` is deprecated.**
+
+2015-10-26&nbsp;&nbsp;&nbsp;&nbsp;`v1.1.0`&nbsp;&nbsp;&nbsp;&nbsp;upgrade build task.
 
 2015-10-21&nbsp;&nbsp;&nbsp;&nbsp;`v1.0.1`&nbsp;&nbsp;&nbsp;&nbsp;fix render data priority.
 
