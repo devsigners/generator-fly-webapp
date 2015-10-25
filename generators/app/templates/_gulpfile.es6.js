@@ -5,7 +5,8 @@ import browserSync from 'browser-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {stream as wiredep} from 'wiredep';
 import del from 'del';
-import {port} from './server/config.es6.js';
+import {port, hbsConfig} from './server/config.es6.js';
+import gulpHandlebars from './tools/gulp-hbs.es6.js';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -119,7 +120,8 @@ gulp.task('html', ['styles'], () => {
         searchPath: ['.tmp', 'app', '.']
     });
 
-    return gulp.src('app/views/**/*.html')
+    return gulp.src(['app/views/**/*.html', '!app/views/{partials,layouts}/*.html'])
+        .pipe(gulpHandlebars(hbsConfig))
         .pipe(assets)
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', $.minifyCss({
@@ -127,9 +129,7 @@ gulp.task('html', ['styles'], () => {
         })))
         .pipe(assets.restore())
         .pipe($.useref())
-        .pipe($.if('*.js', gulp.dest('dist')))
-        .pipe($.if('*.css', gulp.dest('dist')))
-        .pipe($.if('*.html', gulp.dest('dist/views')));
+        .pipe(gulp.dest('dist'));
 });
 
 
@@ -147,7 +147,8 @@ const lint = (files, options) => {
         .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
 };
 gulp.task('lint', lint('app/scripts/**/*.js'));
-gulp.task('lint:server', lint(['server/**/*.es6.js', 'gulpfile.js', 'gulpfile.es6.js']));
+gulp.task('lint:server', lint(['server/**/*.es6.js']));
+gulp.task('lint:tool', lint(['gulpfile.js', 'gulpfile.es6.js', 'tools/**/*.js']));
 
 //
 // ------ proxy server ------

@@ -339,6 +339,9 @@ module.exports = yeoman.generators.Base.extend({
         server: function() {
             this.directory('server', 'server');
         },
+        tools: function() {
+            this.directory('tools', 'tools');
+        },
         misc: function() {
             mkdirp('app/images');
             mkdirp('app/fonts');
